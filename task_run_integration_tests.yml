@@ -1,6 +1,10 @@
 ---
 platform: linux
 
+image_resource:
+  type: docker-image
+  source: {repository: ivanspasov/springbootapi}
+
 inputs:
   - name: back-end-spring-boot
 
