@@ -1,0 +1,12 @@
+---
+
+image_resource:
+  type: docker-image
+  source: {repository: busybox}
+
+input:
+  - name: back-end-spring-boot
+
+run:
+  path: ls
+  args: [-l]

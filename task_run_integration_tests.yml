@@ -1,0 +1,8 @@
+---
+platform: linux
+
+inputs:
+  - name: back-end-spring-boot
+
+run:
+  path: back-end-spring-boot/run_integration_tests.sh

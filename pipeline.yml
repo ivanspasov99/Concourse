@@ -1,0 +1,23 @@
+---
+resources:
+  - name: back-end-spring-boot
+    type: git
+    source:
+      uri: https://github.com/ivanspasov99/RESTful-API.git
+      branch: master
+  - name: concourse-tasks
+    type: git
+    source:
+      uri: https://github.com/ivanspasov99/Concourse
+      branch: master
+
+jobs:
+  - name: job-spring
+    public: true
+    plan:
+      - get: back-end-spring-boot
+      - get: concourse-tasks
+      - task: check-container-content
+        file: check-container-content/task_check_container_content.yml
+      - task: run-integration-tests
+        file: run-integration-tests/task_run_integration_tests.yml
