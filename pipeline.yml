@@ -18,6 +18,6 @@ jobs:
       - get: back-end-spring-boot
       - get: concourse-tasks
       - task: check-container-content
-        file: check-container-content/task_check_container_content.yml
+        file: concourse-tasks/task_check_container_content.yml
       - task: run-integration-tests
-        file: run-integration-tests/task_run_integration_tests.yml
+        file: concourse-tasks/task_run_integration_tests.yml
