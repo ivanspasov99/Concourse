@@ -10,4 +10,4 @@ inputs:
 
 run:
   path: ls
-  args: [-l back-end-spring-boot]
+  args: [-laR]
