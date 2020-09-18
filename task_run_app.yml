@@ -1,0 +1,13 @@
+---
+
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: {repository: docker}
+
+inputs:
+  - name: front-end-spring-boot
+
+run:
+  path: ./front-end-spring-boot/app/run_app.sh
