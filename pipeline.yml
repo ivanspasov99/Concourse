@@ -23,9 +23,10 @@ jobs:
       - get: back-end-spring-boot
       - get: concourse-tasks
       - get: front-end-spring-boot
+      - task: run-application
+        file: concourse-tasks/task_run_app.yml
       - task: check-container-content
         file: concourse-tasks/task_check_container_content.yml
       - task: run-integration-tests
         file: concourse-tasks/task_run_integration_tests.yml
-      - task: run-application
-        file: concourse-tasks/task_run_app.yml
+

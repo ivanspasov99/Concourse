@@ -11,4 +11,4 @@ inputs:
   - name: front-end-spring-boot
 
 run:
-  path: ./front-end-spring-boot/app/run_app.sh
+  path: ./front-end-spring-boot/app/run_app-docker-compose.sh
