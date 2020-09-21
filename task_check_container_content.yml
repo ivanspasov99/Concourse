@@ -8,6 +8,7 @@ image_resource:
 inputs:
   - name: back-end-spring-boot
   - name: front-end-spring-boot
+  - name: concourse-tasks
 
 run:
   path: ls

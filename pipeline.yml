@@ -22,8 +22,8 @@ jobs:
     plan:
       - get: back-end-spring-boot
       - get: concourse-tasks
-      - get: front-end-spring-boot
         trigger: true
+      - get: front-end-spring-boot
       - task: check-container-content
         file: concourse-tasks/task_check_container_content.yml
   - name: run-integration-tests
