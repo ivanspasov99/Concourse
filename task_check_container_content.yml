@@ -7,6 +7,7 @@ image_resource:
 
 inputs:
   - name: back-end-spring-boot
+  - name: front-end-spring-boot
 
 run:
   path: ls
