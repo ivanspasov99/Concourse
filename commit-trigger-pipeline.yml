@@ -1,0 +1,25 @@
+---
+resources:
+  - name: concourse-tasks
+    type: git
+    source:
+      uri: https://github.com/ivanspasov99/Concourse
+      branch: master
+
+jobs:
+  - name: update-date
+    public: true
+    plan:
+      - get: concourse-tasks
+      - task: commit-date-file
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source: {repository: alpine/git}
+          inputs:
+            - name: concourse-tasks
+          outputs:
+            - name: concourse-tasks
+          run:
+            path: ./concourse-tasks/update_date.sh
