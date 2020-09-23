@@ -39,11 +39,9 @@ jobs:
     public: true
     plan:
       - get: concourse-tasks
-      - get: front-end-spring-boot
-      # this line assures that there is connection (error message = 'interaction') between run-integration-tests and run app
-      - get: back-end-spring-boot
         passed: [run-integration-tests]
         trigger: true
+      - get: front-end-spring-boot
       - task: run-application
         file: concourse-tasks/task_run_app.yml
 

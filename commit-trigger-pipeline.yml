@@ -1,10 +1,24 @@
 ---
+# the idea is to download something -> edit it -> upload it
 resources:
   - name: concourse-tasks
     type: git
     source:
-      uri: https://github.com/ivanspasov99/Concourse
+      # does not work with https so need to set up different uri, check net for that, check url with git remote -v
+      # first variant - via SSH protocol (requires private key)
+      # uri: git@github.com:ivanspasov99/Concourse.git
+      # second - via HTTPS which requires username & password (personal access token)
+      uri: https://github.com/ivanspasov99/Concourse.git
       branch: master
+      # 1 - concourse does not work with passphrase -> check how to remove it
+      # 2 - copy your private key and paste it here
+      # first variant
+      # private_key: ... key here with |
+      # second
+      # with access token
+      username: ivanspasov99
+      password: d52893e48fd205b49d005210e1382b7a614c3a62
+
 
 jobs:
   - name: update-date
@@ -23,3 +37,8 @@ jobs:
             - name: concourse-tasks
           run:
             path: ./concourse-tasks/update_date.sh
+        # resource to put in
+      - put: concourse-tasks
+        params:
+          # output
+          repository: concourse-tasks
